@@ -1,6 +1,6 @@
 {
   "name": "redux-lang",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "description": "A Redux implementation for simple React and React Native language i18n.",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
     "Redux",
     "language",
     "internationalization",
-    "i18n",
+    "i18n"
   ],
   "author": {
     "name": "James Tierney",
