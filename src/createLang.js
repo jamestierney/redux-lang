@@ -10,8 +10,8 @@ export const createLang = (strings) => {
       return key
     }, strings)
   }
-  return (component) => {
-    const mstp = ({ lang }) => ({ lang, rlang: getString(lang) })
+  return (component, screenKey) => {
+    const mstp = ({ lang }) => ({ lang, t: getString(lang)(screenKey) })
     const mdtp = dispatch => bindActionCreators(actions, dispatch)
     return connect(mstp, mdtp)(component)
   }
