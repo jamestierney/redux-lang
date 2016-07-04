@@ -1,6 +1,6 @@
 {
   "name": "redux-lang",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "description": "A Redux implementation for simple React and React Native language i18n.",
   "repository": {
     "type": "git",

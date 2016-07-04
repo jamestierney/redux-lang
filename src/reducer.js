@@ -5,7 +5,7 @@ export default (initialState) => {
     switch (action.type) {
 
       case types.REDUX_LANG_SET_LANGUAGE:
-        return action.value
+        return action.value ? action.value : state
 
       default:
         return state

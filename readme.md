@@ -30,7 +30,7 @@ export default {
 
 ### Step 3
 Initialise ReduxLang in your application, e.g. src/middleware/lang.js,
-using your dictionary files
+using your dictionary file
 ```
 import { createLang } from 'redux-lang'
 import dictionary from '../../assets/lang/index'
@@ -53,7 +53,7 @@ export default combineReducers({
 
 ### Step 5
 Decorate your component with reduxLang().
-This will provide your component with props which you can use to access your language files and set the current language.
+This will provide your component with props which you can use to access your language strings and set the current language.
 You need to pass a second argument to represent the 'screen key' in your dictionary.
 ```
 import React, { Component } from 'react'
