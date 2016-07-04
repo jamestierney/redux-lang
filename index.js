@@ -5,5 +5,5 @@ import langReducer from './src/reducer'
 export {
   createLang,
   setLanguage,
-  langReducer,
+  langReducer
 }
