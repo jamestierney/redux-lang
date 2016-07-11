@@ -11,7 +11,7 @@ Create a map of language strings, e.g. assets/lang/en.js:
 ```
 export default {
   home: {
-    welcome: 'Hello'
+    welcome: 'Hello, %s!'
   }
 }
 ```
@@ -66,7 +66,7 @@ import reduxLang from '../middleware/lang'
 const Demo = ({t, locale, setLocale}) => {
   console.log(locale) // 'en'
   return (
-    <p>{t('welcome')}</p>
+    <p>{t('welcome', ['James'])}</p>
   )
 }
 export default reduxLang('home')(Demo)
@@ -82,7 +82,7 @@ const Demo = ({t, locale, setLocale}) => {
   console.log(locale) // 'en'
   return (
     <View style={{top: 20}}>
-      <Text>{t('welcome')}</Text>
+      <Text>{t('welcome', ['James'])}</Text>
     </View>
   )
 }

@@ -5,25 +5,25 @@ import React from 'react'
 import { expect } from 'chai'
 import { shallow } from 'enzyme'
 import { createStore, combineReducers } from 'redux'
-import { createLang, getString } from '../src/createLang'
+import { createLang, getString, applyReplacements } from '../src/createLang'
 import reducer from '../src/reducer'
 
 const dictionary = {
   en: {
     home: {
-      welcome: 'Welcome'
+      welcome: 'Welcome, %s!'
     }
   },
   fr: {
     home: {
-      welcome: 'Bienvenue'
+      welcome: 'Bienvenue, %s!'
     }
   }
 }
 
-const Welcome = ({locale}) => {
+const Welcome = ({locale, t}) => {
   return (
-    <p>Welcome {locale}</p>
+    <p>Welcome, {t('welcome', ['James'])}</p>
   )
 }
 
@@ -46,13 +46,18 @@ describe('createLang', () => {
   //   const { reduxLang } = setup()
   //   expect(reduxLang('home')).to.be.a('function')
   // })
+  it('should apply replacements to a given string', () => {
+    const output = 'Welcome, James!'
+    const result = applyReplacements('Welcome, %s!', ['James'])
+    expect(result).to.equal(output)
+  })
   it('should return the appropriate string from the dictionary', () => {
-    const output = 'Welcome'
-    const result = getString(dictionary)('en')('home')('welcome')
+    const output = 'Welcome, James!'
+    const result = getString(dictionary)('en')('home')('welcome', ['James'])
     expect(result).to.equal(output)
   })
   it('should output an error and return the key if not present', () => {
-    let result = getString(dictionary)('de')('home')('welcome')
+    let result = getString(dictionary)('de')('home')('welcome', ['James'])
     expect(result).to.equal('welcome')
     result = getString(dictionary)('en')('about')('welcome')
     expect(result).to.equal('welcome')
@@ -62,7 +67,8 @@ describe('createLang', () => {
   it('should decorate the component', () => {
     const { enzymeWrapper } = setup()
     expect(enzymeWrapper.nodes[0].props.locale).to.equal('en')
-    expect(enzymeWrapper.nodes[0].props.t('welcome')).to.equal('Welcome')
+    expect(enzymeWrapper.nodes[0].props.t('welcome', ['James']))
+      .to.equal('Welcome, James!')
     const expected = { type: 'REDUX_LANG_SET_LOCALE', value: 'fr' }
     expect(enzymeWrapper.nodes[0].props.setLocale('fr')).to.eql(expected)
   })

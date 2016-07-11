@@ -9,6 +9,7 @@ const App = ({t, locale}) => {
   return (
     <Layout>
       <Text>{t('current_language')}: {LANGUAGES[locale]}</Text>
+      <Text>{t('welcome', ['Steve'])}</Text>
       <Text>{t('it_works')}</Text>
       <LanguagesSegmentedControl />
     </Layout>

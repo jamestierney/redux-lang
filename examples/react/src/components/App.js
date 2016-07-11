@@ -9,6 +9,7 @@ const App = ({t, locale}) => {
     <Layout>
       <h2>{t('current_language')}: {LANGUAGES[locale]}</h2>
       <LanguagesDropdown />
+      <p>{t('welcome', ['Steve'])}</p>
       <p>{t('it_works')}</p>
     </Layout>
   )
