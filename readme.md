@@ -57,10 +57,26 @@ Decorate your component with reduxLang().
 This will provide your component with props which you can use to access your
 language strings and set the current language. You need to pass a second
 argument to represent the 'screen key' in your dictionary.
+
+#### React:
+```
+import React from 'react'
+import reduxLang from '../middleware/lang'
+
+const Demo = ({t, locale, setLocale}) => {
+  console.log(locale) // 'en'
+  return (
+    <p>{t('welcome')}</p>
+  )
+}
+export default reduxLang('home')(Demo)
+```
+
+#### React Native:
 ```
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
-import { reduxLang } from '../middleware/lang'
+import reduxLang from '../middleware/lang'
 
 const Demo = ({t, locale, setLocale}) => {
   console.log(locale) // 'en'
@@ -72,3 +88,4 @@ const Demo = ({t, locale, setLocale}) => {
 }
 export default reduxLang('home')(Demo)
 ```
+See examples for more detailed implementations.

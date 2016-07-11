@@ -6,18 +6,20 @@ const defaultConfig = {
   reducerKey: 'locale'
 }
 
+export const getString = dictionary => localeKey => screenKey => stringKey => {
+  return [localeKey, screenKey, stringKey].reduce((acc, key) => {
+    if (acc[key]) return acc[key]
+    console.warn(`ReduxLang: ${localeKey} / ${screenKey} / ${stringKey} does not exist!`)
+    return key
+  }, dictionary)
+}
+
 export const createLang = (dictionary, config = defaultConfig) => {
-  const getString = localeKey => screenKey => stringKey => {
-    return [localeKey, screenKey, stringKey].reduce((acc, key) => {
-      if (acc[key]) return acc[key]
-      console.warn(`ReduxLang: ${localeKey} / ${screenKey} / ${stringKey} does not exist!`)
-      return key
-    }, dictionary)
-  }
+  const getStringFromDictionary = getString(dictionary)
   return screenKey => component => {
     const { reducerKey } = config
     const mstp = ({ [reducerKey]: locale }) =>
-      ({ [reducerKey]: locale, t: getString(locale)(screenKey) })
+      ({ [reducerKey]: locale, t: getStringFromDictionary(locale)(screenKey) })
     const mdtp = dispatch => bindActionCreators(actions, dispatch)
     return connect(mstp, mdtp)(component)
   }
