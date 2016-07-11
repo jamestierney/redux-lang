@@ -11,15 +11,15 @@ const getIndexOfValue = dictionary => value => {
   return keys.indexOf(value)
 }
 
-const LanguagesDropdown = ({t, lang, setLanguage}) => {
+const LanguagesSegmentedControl = ({t, locale, setLocale}) => {
   return (
     <SegmentedControlIOS
       style={{ width: 300 }}
       values={Object.values(LANGUAGES)}
-      selectedIndex={getIndexOfValue(LANGUAGES)(lang)}
-      onValueChange={(value) => { setLanguage(getKeyFromDictionaryByValue(LANGUAGES)(value)) }}
+      selectedIndex={getIndexOfValue(LANGUAGES)(locale)}
+      onValueChange={(value) => { setLocale(getKeyFromDictionaryByValue(LANGUAGES)(value)) }}
     />
   )
 }
 
-export default reduxLang(LanguagesDropdown, 'home')
+export default reduxLang('home')(LanguagesSegmentedControl)

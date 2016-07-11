@@ -1,17 +1,17 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { Text } from 'react-native'
 import reduxLang from '../middleware/lang'
 import Layout from './Layout'
-import LanguagesDropdown from './LanguagesDropdown'
+import LanguagesSegmentedControl from './LanguagesSegmentedControl'
 import LANGUAGES from '../constants/languages'
 
-const App = ({t, lang}) => {
+const App = ({t, locale}) => {
   return (
     <Layout>
-      <Text>{t('current_language')}: {LANGUAGES[lang]}</Text>
+      <Text>{t('current_language')}: {LANGUAGES[locale]}</Text>
       <Text>{t('it_works')}</Text>
-      <LanguagesDropdown />
+      <LanguagesSegmentedControl />
     </Layout>
   )
 }
-export default reduxLang(App, 'home')
+export default reduxLang('home')(App)
