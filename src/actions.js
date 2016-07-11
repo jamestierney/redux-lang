@@ -1,3 +1,3 @@
-import { REDUX_LANG_SET_LANGUAGE } from './actionTypes'
+import { REDUX_LANG_SET_LOCALE } from './actionTypes'
 
-export const setLanguage = value => ({ type: REDUX_LANG_SET_LANGUAGE, value })
+export const setLocale = value => ({ type: REDUX_LANG_SET_LOCALE, value })

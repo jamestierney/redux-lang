@@ -11,7 +11,7 @@ export const createLang = (strings) => {
     }, strings)
   }
   return (component, screenKey) => {
-    const mstp = ({ lang }) => ({ lang, t: getString(lang)(screenKey) })
+    const mstp = ({ locale }) => ({ locale, t: getString(locale)(screenKey) })
     const mdtp = dispatch => bindActionCreators(actions, dispatch)
     return connect(mstp, mdtp)(component)
   }

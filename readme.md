@@ -24,7 +24,7 @@ import fr from './fr'
 
 export default {
   en,
-  fr,
+  fr
 }
 ```
 
@@ -39,7 +39,8 @@ export default reduxLang
 ```
 
 ### Step 4
-Add the redux-lang reducer to your root reducer. This is a function which takes the initial language key as an argument.
+Add the redux-lang reducer to your root reducer.
+This is a function which takes the initial language key as an argument.
 
 ```
 import { combineReducers } from 'redux'
@@ -47,21 +48,22 @@ import { langReducer } from 'redux-lang'
 
 export default combineReducers({
   // All your other reducers here
-  lang: langReducer('en'),
+  locale: langReducer('en'),
 })
 ```
 
 ### Step 5
 Decorate your component with reduxLang().
-This will provide your component with props which you can use to access your language strings and set the current language.
-You need to pass a second argument to represent the 'screen key' in your dictionary.
+This will provide your component with props which you can use to access your
+language strings and set the current language. You need to pass a second
+argument to represent the 'screen key' in your dictionary.
 ```
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import { reduxLang } from '../middleware/lang'
 
-const Demo = ({t, lang, setLanguage}) => {
-  console.log(lang) // 'en'
+const Demo = ({t, locale, setLocale}) => {
+  console.log(locale) // 'en'
   return (
     <View style={{top: 20}}>
       <Text>{t('welcome')}</Text>
