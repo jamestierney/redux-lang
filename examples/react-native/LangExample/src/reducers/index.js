@@ -3,5 +3,5 @@ import { langReducer } from 'redux-lang'
 
 export default combineReducers({
   // All your other reducers here
-  lang: langReducer('en')
+  locale: langReducer('en')
 })

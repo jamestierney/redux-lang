@@ -7,17 +7,17 @@ const getValues = () => Object.keys(LANGUAGES).map((key, i) => {
   return <option key={i} value={key}>{value}</option>
 })
 
-const LanguagesDropdown = ({t, locale, setLanguage}) => {
+const LanguagesDropdown = ({t, locale, setLocale}) => {
   return (
     <div className='form-group'>
       <label>{t('select_language')}:</label>
       <select className='form-control'
         value={locale}
-        onChange={(event) => setLanguage(event.target.value)}>
+        onChange={(event) => setLocale(event.target.value)}>
         {getValues()}
       </select>
     </div>
   )
 }
 
-export default reduxLang(LanguagesDropdown, 'home')
+export default reduxLang('home')(LanguagesDropdown)

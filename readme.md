@@ -48,7 +48,7 @@ import { langReducer } from 'redux-lang'
 
 export default combineReducers({
   // All your other reducers here
-  locale: langReducer('en'),
+  locale: langReducer('en')
 })
 ```
 
@@ -70,5 +70,5 @@ const Demo = ({t, locale, setLocale}) => {
     </View>
   )
 }
-export default reduxLang(Demo, 'home')
+export default reduxLang('home')(Demo)
 ```

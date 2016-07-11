@@ -1,6 +1,6 @@
 {
-  "name": "LangExample",
-  "version": "0.0.1",
+  "name": "ReduxLangReactNativeExample",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start"
@@ -10,6 +10,6 @@
     "react-native": "0.29.0",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
-    "redux-lang": "^0.1.3"
+    "redux-lang": "^1.0.1"
   }
 }

@@ -2,16 +2,22 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as actions from './actions'
 
-export const createLang = (strings) => {
-  const getString = language => screen => key => {
-    return [language, screen, key].reduce((acc, key) => {
+const defaultConfig = {
+  reducerKey: 'locale'
+}
+
+export const createLang = (dictionary, config = defaultConfig) => {
+  const getString = localeKey => screenKey => stringKey => {
+    return [localeKey, screenKey, stringKey].reduce((acc, key) => {
       if (acc[key]) return acc[key]
-      console.warn(`ReduxLang: ${language} / ${screen} / ${key} does not exist!`)
+      console.warn(`ReduxLang: ${localeKey} / ${screenKey} / ${stringKey} does not exist!`)
       return key
-    }, strings)
+    }, dictionary)
   }
-  return (component, screenKey) => {
-    const mstp = ({ locale }) => ({ locale, t: getString(locale)(screenKey) })
+  return screenKey => component => {
+    const { reducerKey } = config
+    const mstp = ({ [reducerKey]: locale }) =>
+      ({ [reducerKey]: locale, t: getString(locale)(screenKey) })
     const mdtp = dispatch => bindActionCreators(actions, dispatch)
     return connect(mstp, mdtp)(component)
   }

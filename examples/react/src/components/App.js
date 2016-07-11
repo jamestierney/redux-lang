@@ -13,4 +13,4 @@ const App = ({t, locale}) => {
     </Layout>
   )
 }
-export default reduxLang(App, 'home')
+export default reduxLang('home')(App)
