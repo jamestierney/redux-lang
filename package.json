@@ -1,15 +1,17 @@
 {
   "name": "redux-lang",
-  "version": "1.1.0",
   "description": "A Redux implementation for simple React and React Native language i18n.",
   "repository": {
     "type": "git",
     "url": "https://github.com/jamestierney/redux-lang"
   },
+  "version": "0.0.0-semantically-released",
   "main": "src/index.js",
   "directories": {},
   "scripts": {
-    "test": "mocha --compilers js:babel-register test/*.js"
+    "commit": "git-cz",
+    "test": "mocha --compilers js:babel-register test/*.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
     "React",
@@ -31,8 +33,10 @@
     }
   ],
   "license": "MIT",
-  "standard": {
-    "parser": "babel-eslint"
+  "dependencies": {
+    "react": "^15.2.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2"
   },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
@@ -42,11 +46,15 @@
     "babelify": "^7.3.0",
     "browserify": "^13.0.1",
     "chai": "^3.5.0",
-    "mocha": "^2.5.3"
+    "commitizen": "2.8.2",
+    "cz-conventional-changelog": "1.1.6",
+    "mocha": "^2.5.3",
+    "semantic-release": "^4.3.5"
   },
-  "dependencies": {
-    "react": "^15.2.1",
-    "react-redux": "^4.4.5",
-    "redux": "^3.5.2"
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
   }
 }
