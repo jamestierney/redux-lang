@@ -7,8 +7,6 @@ const defaultConfig = {
   reducerKey: 'locale'
 }
 
-
-
 export const applyReplacements = (obj, replacements = []) => {
   return (typeof obj === 'string' && replacements.length > 0)
     ? vsprintf(obj, replacements)
