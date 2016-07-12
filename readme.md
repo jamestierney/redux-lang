@@ -1,4 +1,12 @@
 # ReduxLang
+
+[![travis build](https://img.shields.io/travis/jamestierney/redux-lang.svg?style=flat-square)](https://travis-ci.org/jamestierney/redux-lang)
+[![version](https://img.shields.io/npm/v/redux-lang.svg?style=flat-square)](http://npm.im/redux-lang)
+[![downloads](https://img.shields.io/npm/dm/redux-lang.svg?style=flat-square)](http://npm-stat.com/charts.html?package=redux-lang&from=2015-08-01)
+[![MIT License](https://img.shields.io/npm/l/redux-lang.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
+
 A Redux implementation for simple React and React Native language i18n.
 
 ## Installation

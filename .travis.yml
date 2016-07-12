@@ -14,9 +14,10 @@ before_script:
 script:
   - npm run cover
   - npm run check-coverage
+  - npm run build
 after_success:
-  - npm run report-coverage
+  # - npm run report-coverage   # doesn't seem to create files in coverage folder
   - npm run semantic-release
 branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+  only:
+    - master
