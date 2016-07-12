@@ -44,8 +44,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "react-redux": "^4.4.5",
-    "redux": "^3.5.2",
     "sprintf-js": "1.0.3"
   },
   "devDependencies": {
@@ -70,8 +68,11 @@
     "mocha": "^2.5.3",
     "npm-run-all": "2.3.0",
     "nyc": "7.0.0",
+    "react": "15.2.1",
     "react-addons-test-utils": "15.2.1",
     "react-dom": "15.2.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
     "rimraf": "2.5.3",
     "semantic-release": "^4.3.5",
     "standard": "7.1.2",
