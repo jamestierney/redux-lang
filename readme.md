@@ -104,4 +104,4 @@ const Demo = ({t, locale, setLocale}) => {
 }
 export default reduxLang('home')(Demo)
 ```
-See examples for more detailed implementations.
+See [examples](https://github.com/jamestierney/redux-lang/tree/master/examples) for more detailed implementations.
