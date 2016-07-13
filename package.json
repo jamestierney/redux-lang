@@ -81,12 +81,6 @@
   "standard": {
     "parser": "babel-eslint"
   },
-  "babel": {
-    "presets": [
-      "es2015",
-      "stage-2"
-    ]
-  },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"

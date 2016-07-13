@@ -15,9 +15,9 @@ A Redux implementation for simple React and React Native language i18n.
 Or include the following in your web page:
 ```html
 <!-- minified version -->
-<script src="https://npmcdn.com/redux-lang@1.4.0/dist/index.umd.min.js"></script>
+<script src="https://npmcdn.com/redux-lang/dist/index.umd.min.js"></script>
 <!-- non-minified version -->
-<script src="https://npmcdn.com/redux-lang@1.4.0/dist/index.umd.js"></script>
+<script src="https://npmcdn.com/redux-lang/dist/index.umd.js"></script>
 ```
 
 ## Usage
