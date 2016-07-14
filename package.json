@@ -11,7 +11,7 @@
   "scripts": {
     "commit": "git-cz",
     "check-coverage": "nyc check-coverage --statements 100 --functions 100 --lines 100",
-    "build-coverage-reports": "nyc --reporter=lcov npm t",
+    "build-coverage-reports": "nyc npm t --reporter=lcov",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "start": "npm run test",
     "watch:test": "npm t -- --watch",
@@ -62,6 +62,7 @@
     "browserify": "^13.0.1",
     "chai": "^3.5.0",
     "codecov": "1.0.1",
+    "codecov.io": "0.1.6",
     "commitizen": "2.8.2",
     "cz-conventional-changelog": "1.1.6",
     "enzyme": "2.4.1",
@@ -81,6 +82,11 @@
   },
   "standard": {
     "parser": "babel-eslint"
+  },
+  "nyc": {
+    "include": [
+      "src/*.js"
+    ]
   },
   "config": {
     "commitizen": {
