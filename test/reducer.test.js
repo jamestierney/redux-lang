@@ -17,19 +17,29 @@ describe('reducers', () => {
   })
   describe('default state', () => {
     it('should return the initial state as default', () => {
-      const stateAfter = 'en'
-      expect(reducer()).to.equal(stateAfter)
+      const expected = 'en'
+      expect(reducer()).to.equal(expected)
     })
   })
   describe('set locale', () => {
     it('should set the state to the new value', () => {
       const stateBefore = 'en'
-      const stateAfter = 'fr'
+      const expected = 'fr'
       const action = {
         type: REDUX_LANG_SET_LOCALE,
         value: 'fr'
       }
-      expect(reducer(stateBefore, action)).to.equal(stateAfter)
+      const actual = reducer(stateBefore, action)
+      expect(actual).to.equal(expected)
+    })
+    it('should return the state if the value is null or missing', () => {
+      const stateBefore = 'en'
+      const expected = 'en'
+      const action = {
+        type: REDUX_LANG_SET_LOCALE
+      }
+      const actual = reducer(stateBefore, action)
+      expect(actual).to.equal(expected)
     })
   })
 })

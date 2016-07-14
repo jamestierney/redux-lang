@@ -16,7 +16,8 @@ script:
   - npm run check-coverage
   - npm run build
 after_success:
-  # - npm run report-coverage   # doesn't seem to create files in coverage folder
+  - npm run build-coverage-reports
+  - npm run report-coverage
   - npm run semantic-release
 branches:
   only:

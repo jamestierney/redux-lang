@@ -11,12 +11,14 @@ import reducer from '../src/reducer'
 const dictionary = {
   en: {
     home: {
-      welcome: 'Welcome, %s!'
+      welcome: 'Welcome, %s!',
+      it_works: 'It works!!!'
     }
   },
   fr: {
     home: {
-      welcome: 'Bienvenue, %s!'
+      welcome: 'Bienvenue, %s!',
+      it_works: 'Ça marche!!!'
     }
   }
 }
@@ -27,42 +29,53 @@ const Welcome = ({locale, t}) => {
   )
 }
 
-const setup = () => {
-  const reducers = combineReducers({ locale: reducer('en') })
-  const store = createStore(reducers)
-  const reduxLang = createLang(dictionary)
-  const Wrapped = reduxLang('home')(Welcome)
-  const enzymeWrapper = shallow(<Wrapped store={store} />)
-  return {
-    store,
-    reduxLang,
-    enzymeWrapper,
-    Wrapped
-  }
-}
-
 describe('createLang', () => {
+  const setup = () => {
+    const reducers = combineReducers({ locale: reducer('en') })
+    const store = createStore(reducers)
+    const reduxLang = createLang(dictionary)
+    const Wrapped = reduxLang('home')(Welcome)
+    const enzymeWrapper = shallow(<Wrapped store={store} />)
+    return {
+      store,
+      reduxLang,
+      enzymeWrapper,
+      Wrapped
+    }
+  }
+
   // it('should initialise the language decorator with the dictionary', () => {
   //   const { reduxLang } = setup()
   //   expect(reduxLang('home')).to.be.a('function')
   // })
+
   it('should apply replacements to a given string', () => {
-    const output = 'Welcome, James!'
-    const result = applyReplacements('Welcome, %s!', ['James'])
-    expect(result).to.equal(output)
+    const expected = 'Welcome, James!'
+    const actual = applyReplacements('Welcome, %s!', ['James'])
+    expect(actual).to.equal(expected)
+  })
+  it('should return the input string if replacements are not present', () => {
+    const expected = 'Welcome, %s!'
+    const actual = applyReplacements('Welcome, %s!')
+    expect(actual).to.equal(expected)
   })
   it('should return the appropriate string from the dictionary', () => {
-    const output = 'Welcome, James!'
-    const result = getString(dictionary)('en')('home')('welcome', ['James'])
-    expect(result).to.equal(output)
+    const expected = 'Ça marche!!!'
+    const actual = getString(dictionary)('fr')('home')('it_works')
+    expect(actual).to.equal(expected)
+  })
+  it('should return the appropriate string from the dictionary and apply replacements', () => {
+    const expected = 'Welcome, James!'
+    const actual = getString(dictionary)('en')('home')('welcome', ['James'])
+    expect(actual).to.equal(expected)
   })
   it('should output an error and return the key if not present', () => {
-    let result = getString(dictionary)('de')('home')('welcome', ['James'])
-    expect(result).to.equal('welcome')
-    result = getString(dictionary)('en')('about')('welcome')
-    expect(result).to.equal('welcome')
-    result = getString(dictionary)('en')('home')('goodbye')
-    expect(result).to.equal('goodbye')
+    let actual = getString(dictionary)('de')('home')('welcome', ['James'])
+    expect(actual).to.equal('welcome')
+    actual = getString(dictionary)('en')('about')('welcome')
+    expect(actual).to.equal('welcome')
+    actual = getString(dictionary)('en')('home')('goodbye')
+    expect(actual).to.equal('goodbye')
   })
   it('should decorate the component', () => {
     const { enzymeWrapper } = setup()
@@ -71,5 +84,10 @@ describe('createLang', () => {
       .to.equal('Welcome, James!')
     const expected = { type: 'REDUX_LANG_SET_LOCALE', value: 'fr' }
     expect(enzymeWrapper.nodes[0].props.setLocale('fr')).to.eql(expected)
+  })
+  it('should return reduxLang', () => {
+    const { reduxLang } = setup()
+    const homeStrings = reduxLang('home')
+    expect(homeStrings).to.be.a('function')
   })
 })

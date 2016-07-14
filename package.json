@@ -11,6 +11,7 @@
   "scripts": {
     "commit": "git-cz",
     "check-coverage": "nyc check-coverage --statements 100 --functions 100 --lines 100",
+    "build-coverage-reports": "nyc --reporter=lcov npm t",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "start": "npm run test",
     "watch:test": "npm t -- --watch",
