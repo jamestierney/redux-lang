@@ -1,6 +1,7 @@
 # ReduxLang
 
 [![travis build](https://img.shields.io/travis/jamestierney/redux-lang.svg?style=flat-square)](https://travis-ci.org/jamestierney/redux-lang)
+[![codecov coverage](https://img.shields.io/codecov/c/github/jamestierney/redux-lang.svg?style=flat-square)](https://codecov.io/github/jamestierney/redux-lang)
 [![version](https://img.shields.io/npm/v/redux-lang.svg?style=flat-square)](http://npm.im/redux-lang)
 [![downloads](https://img.shields.io/npm/dm/redux-lang.svg?style=flat-square)](http://npm-stat.com/charts.html?package=redux-lang&from=2015-08-01)
 [![MIT License](https://img.shields.io/npm/l/redux-lang.svg?style=flat-square)](http://opensource.org/licenses/MIT)
@@ -15,9 +16,9 @@ A Redux implementation for simple React and React Native language i18n.
 Or include the following in your web page:
 ```html
 <!-- minified version -->
-<script src="https://npmcdn.com/redux-lang/dist/index.umd.min.js"></script>
+<script src="https://npmcdn.com/redux-lang/dist/index.min.js"></script>
 <!-- non-minified version -->
-<script src="https://npmcdn.com/redux-lang/dist/index.umd.js"></script>
+<script src="https://npmcdn.com/redux-lang/dist/index.js"></script>
 ```
 
 ## Usage
