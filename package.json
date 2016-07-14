@@ -10,7 +10,7 @@
   "directories": {},
   "scripts": {
     "commit": "git-cz",
-    "check-coverage": "nyc check-coverage --statements 100 --functions 100 --lines 100",
+    "check-coverage": "nyc check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
     "build-coverage-reports": "nyc npm t --reporter=lcov",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "start": "npm run test",
