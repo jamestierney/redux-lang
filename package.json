@@ -81,9 +81,6 @@
     ]
   },
   "browserify": {
-    "transform": [
-      "babelify"
-    ]
   },
   "config": {
     "commitizen": {
