@@ -2,7 +2,7 @@
 /* eslint-env mocha */
 
 import { expect } from 'chai'
-import { getString, applyReplacements } from '../src/helpers'
+import { getString, applyReplacements, square } from '../src/helpers'
 
 const dictionary = {
   en: {
@@ -20,6 +20,11 @@ const dictionary = {
 }
 
 describe('helpers', () => {
+  it('should square a number', () => {
+    const expected = 4
+    const actual = square(2)
+    expect(actual).to.equal(expected)
+  })
   it('should apply replacements to a given string', () => {
     const expected = 'Welcome, James!'
     const actual = applyReplacements('Welcome, %s!', ['James'])

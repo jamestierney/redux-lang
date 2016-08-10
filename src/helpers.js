@@ -13,3 +13,5 @@ export const getString = dictionary => localeKey => screenKey => (stringKey, rep
     return key
   }, dictionary)
 }
+
+export const square = number => number * number

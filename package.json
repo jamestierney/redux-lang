@@ -15,7 +15,7 @@
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "start": "npm run test",
     "watch:test": "npm t -- --watch",
-    "test": "standard && mocha test/*.js --compilers js:babel-register",
+    "test": "mocha test/*.js --compilers js:babel-register",
     "cover": "nyc npm t",
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
